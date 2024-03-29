@@ -1,25 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 {% load static %}
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <!--TAILWINDCSS CDNa-->
-    <script src="https://cdn.tailwindcss.com"></script>
+        <!--TAILWINDCSS CDNa-->
+        <script src="https://cdn.tailwindcss.com"></script>
 
-    <!--TITLE-->
-    <title>{% block title %}{% endblock %} | NFDEV Invoice</title>
-</head>
-<body>
+        <!--TITLE-->
+        <title>{% block title %}{% endblock title %} | NFDEV Invoice</title>
+    </head>
+    <body>
+        {% include "base/navbar.html" %}
 
-    <header>{% block header %}{% endblock %}</header>
+        <header>{% block header %}{% endblock header %}</header>
 
-    <main>{% block content %}{% endblock %}</main>
+        <main>{% block content %}{% endblock content %}</main>
 
-    <footer>{% block footer %}{% endblock %}</footer>
-
-</body>
+        <footer>{% block footer %}{% endblock footer %}</footer>
+    </body>
 </html>

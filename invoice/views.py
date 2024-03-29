@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def invoices(request):
+    context = {}
+    return render(request=request, template_name='invoice/index.html', context=context)
