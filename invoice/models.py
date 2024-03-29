@@ -9,13 +9,13 @@ class Customer(models.Model):
     Author: (Nuno Fernandes) n.fernandes.contact@gmail.com
     """
 
-    name = models.CharField(verbose_name='Nom d\'utilisateur', max_length=132)
-    email = models.EmailField(verbose_name='Email')
-    phone = models.CharField(verbose_name='Telephone')
-    address = models.CharField(verbose_name='Adresse ', max_length=100)
-    city = models.CharField(verbose_name='Ville', max_length=100)
-    zip_code = models.CharField(verbose_name='Code postal', max_length=20)
-    siret = models.PositiveIntegerField(verbose_name='SIRET')
+    name = models.CharField(max_length=132)
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    address = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    zip_code = models.CharField(max_length=20)
+    siret = models.CharField(max_length=20)
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     saved_by = models.ForeignKey(User, on_delete=models.PROTECT)
@@ -41,20 +41,19 @@ class Invoice(models.Model):
         ('P', 'PROFORMA FACTURE'),
         ('F', 'FACTURE'),
     )
-
-    number = models.PositiveIntegerField(verbose_name='Numéro de facture')
-    total = models.DecimalField(verbose_name='Total', max_digits=9999999, decimal_places=2)
-    invoice_date = models.DateTimeField(verbose_name='Date', auto_now_add=True)
-    invoice_deadline = models.DateField(verbose_name="Échéance")
-    last_updated_date = models.DateTimeField(verbose_name='Date de dernière mise à jour', null=True, blank=True)
-    paid = models.BooleanField(verbose_name="Payé", default=False)
-    invoice_type = models.CharField(verbode_name='Type de facture', max_length=1, choices=INVOICE_TYPE)
-    comments = models.TextField(verbose_name='Commentaire', null=True, blank='True', max_length=1000)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
+    invoice_type = models.CharField(max_length=1, choices=INVOICE_TYPE)
+    # number = models.PositiveIntegerField(default=0)
+    invoice_date = models.DateTimeField(auto_now_add=True)
+    invoice_deadline = models.DateField()
+    total = models.DecimalField(max_digits=9999999, decimal_places=2)
+    comments = models.TextField(null=True, blank='True', max_length=1000)
+    paid = models.BooleanField(default=False)
+    last_updated_date = models.DateTimeField(null=True, blank=True, auto_now=True)
     saved_by = models.ForeignKey(User, on_delete=models.PROTECT)
 
     class Meta:
-        ordering = ['-number']
+        ordering = ['-customer']
         verbose_name = 'Invoice'
         verbose_name_plural = 'Invoices'
 
@@ -74,10 +73,10 @@ class Service(models.Model):
     Author: (Nuno Fernandes) n.fernandes.contact@gmail.com
     """
 
-    name = models.CharField(verbose_name='Nom', max_length=100)
-    quantity = models.IntegerField(verbose_name='Quantité', default=0)
-    unit_price = models.DecimalField(verbose_name='Prix unité', max_digits=1000, decimal_places=2)
-    total = models.DecimalField(verbose_name='Total', max_digits=1000, decimal_places=2)
+    name = models.CharField(max_length=100)
+    quantity = models.IntegerField(default=0)
+    unit_price = models.DecimalField(max_digits=1000, decimal_places=2)
+    total = models.DecimalField(max_digits=1000, decimal_places=2)
     invoice = models.ForeignKey(Invoice, on_delete=models.CASCADE)
 
     class Meta:
