@@ -1,5 +1,98 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
-{% block content %}
-<h1>Home page</h1>
-{% endblock content %}
+
+{% block css %}
+    <!-- Bootstrap core CSS -->
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/starter-template.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/sticky-footer-navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/features.css' %}" rel="stylesheet">
+{% endblock css %}
+
+
+{% block header %}
+<!-- The hero starts here ..... -->
+<header class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1">Create an invoice online in minutes</h1>
+            <p class="lead">Are you looking for a FREE invoice builder online? Get
+                started with creating your own invoice online with free invoice template
+                for your business.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <a href="">
+                    <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get Started
+                    </button>
+                </a>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Learn More</button>
+            </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+            <img class="rounded-lg-3" src="{% static 'assets/img/bootstrap-docs.png' %}" alt="" width="720">
+        </div>
+    </div>
+</header>
+<!-- The hero ends here -->
+{% endblock header %}
+
+
+{% block main %}
+<!-- The features start here  -->
+<main class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom">Skolo Online Free Online Invoice Generator</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#collection"/>
+                </svg>
+            </div>
+            <h2>Free Forever</h2>
+            <p>No monthly fees, packages, credit card bills or expensive
+                accountants. Create invoices online for free, forever.</p>
+            <a href="#" class="icon-link">
+                Start for free
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#chevron-right"/>
+                </svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#people-circle"/>
+                </svg>
+            </div>
+            <h2>Cloud Access</h2>
+            <p>Save your on the cloud for access from any device anywhere. Never lose client
+                information again, simply log in to your account and access
+                all historical invoices</p>
+            <a href="#" class="icon-link">
+                Generate first invoice
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#chevron-right"/>
+                </svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon bg-primary bg-gradient">
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#toggles2"/>
+                </svg>
+            </div>
+            <h2>Professional Invoices</h2>
+            <p>Create professional invoices with your company logo and email them directly to
+                your clients from your dashboard. Keep track of when the client receives the
+                invoice and makes payment </p>
+            <a href="#" class="icon-link">
+                Get started with free invoice
+                <svg class="bi" width="1em" height="1em">
+                    <use xlink:href="#chevron-right"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</main>
+<!-- The features end here -->
+{% endblock main %}

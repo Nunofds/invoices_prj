@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.forms import widgets
-
 from .models import *
 import json
 
@@ -13,9 +12,16 @@ class UserLoginForm(forms.ModelForm):
     Author: (Nuno Fernandes) n.fernandes.contact@gmail.com
     """
 
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'id': 'floatingInput', 'class': 'form-control mb-3'}),
+        required=True)
+    password = forms.CharField(
+        widget=forms.PasswordInput(attrs={'id': 'floatingPassword', 'class': 'form-control mb-3'}),
+        required=True)
+
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'password']
 
 
 class ClientForm(forms.ModelForm):

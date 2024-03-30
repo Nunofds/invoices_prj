@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # --- my apps ---
+    'crispy_forms',
     'invoice',
 ]
 
@@ -114,6 +115,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Dynamic media (files & docs)
 MEDIA_URL = 'uploads/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

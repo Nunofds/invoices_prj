@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
+<head>
+    <meta charset="UTF-8"/>
+    <meta
             name="viewport"
             content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-        />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
-        <!--TAILWINDCSS CDNa-->
-        <script src="https://cdn.tailwindcss.com"></script>
+    <!--TITLE-->
+    <title>{% block title %}{% endblock title %} | NFDEV Invoice</title>
 
-        <!--TITLE-->
-        <title>{% block title %}{% endblock title %} | NFDEV Invoice</title>
-    </head>
-    <body>
-        {% include "base/navbar.html" %}
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'assets/css/dashboard.css' %}" rel="stylesheet">
 
-        <header>{% block header %}{% endblock header %}</header>
+    <!--CSS-->
+    <link href="{% static 'assets/base.css' %}" rel="stylesheet">
+    {% block css %}{% endblock %}
 
-        <main>{% block content %}{% endblock content %}</main>
+    <!-- JS starts here  -->
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+            integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+            integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"
+            defer></script>
+    <script src="{% static 'assets/js/dashboard.js' %}" defer></script>
 
-        {% include "base/footer.html" %}
-    </body>
+    {% block scripts %}{% endblock %}
+    <!-- JS ends here  -->
+</head>
+<body>
+
+
+{% block navbar %}{% include "base/navbar.html" %}{% endblock navbar %}
+
+{% block header %}{% endblock header %}
+
+{% block main %}{% endblock main %}
+
+{% include "base/footer.html" %}
+
+</body>
 </html>
