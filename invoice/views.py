@@ -81,4 +81,28 @@ def products_or_services(request):
 @login_required
 def clients(request):
     context = {}
+    all_clients = Client.objects.all()
+    context['clients'] = all_clients
+
+    if request.method == 'GET':
+        form = ClientForm()
+        context['form'] = form
+        return render(request, template_name='invoice/clients/clients.html', context=context)
+
+    if request.method == 'POST':
+        form = ClientForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, message='New Client Added')
+        else:
+            messages.error(request, message='Problem processing your request')
+            return redirect('invoice:clients')
+
     return render(request=request, template_name='invoice/clients/clients.html', context=context)
+
+
+@login_required()
+def logout(request):
+    auth.logout(request)
+    return redirect('invoice:login')
