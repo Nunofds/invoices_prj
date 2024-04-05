@@ -36,14 +36,13 @@
 </head>
 <body>
 
+    {% block navbar %} {% endblock navbar %}
 
-{% block navbar %}{% include "base/navbar.html" %}{% endblock navbar %}
+    {% block header %} {% endblock header %}
 
-{% block header %}{% endblock header %}
+    {% block main %} {% endblock main %}
 
-{% block main %}{% endblock main %}
-
-{% include "base/footer.html" %}
+    {% include "base/footer.html" %}
 
 </body>
 </html>

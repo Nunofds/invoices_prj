@@ -1,7 +1,5 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% load crispy_forms_tags %}
-
 
 {% block title %}Login{% endblock title %}
 
@@ -16,9 +14,13 @@
 {% block main %}
 
 <main class="form-signin text-center">
-    <img class="mb-4" src="{% static 'assets/img/logo.png' %}" alt="" width="72" height="57">
+    <div class="mb-3 pb-3">
+        <h3>NFDEV Invoice</h3>
+        <h4>- Free online invoices -</h4>
+    </div>
+
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <form action="#" method="post">
+    <form action="#" method="POST">
         {% csrf_token %}
 
         {% if messages %}
@@ -37,15 +39,15 @@
 
             <div class="form-floating">
                 {{ form.username }}
-                <label for="floatingInput">Username</label>
+                <label for="floatingInput">Username*</label>
             </div>
             <div class="form-floating">
                 {{ form.password }}
-                <label for="floatingPassword">Password</label>
+                <label for="floatingPassword">Password*</label>
             </div>
 
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2021 Skolo Online</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2024 nunofernandes-dev.com</p>
     </form>
 </main>
 {% endblock main %}
